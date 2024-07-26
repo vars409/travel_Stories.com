@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -11,12 +11,12 @@ const App = () => {
         <Sidebar />
         <div style={{ flex: 1 }}>
           <Navbar />
-          <Switch>
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/destinations" component={() => <div>Destinations</div>} />
-            <Route path="/bookings" component={() => <div>Bookings</div>} />
-            <Route path="/profile" component={() => <div>Profile</div>} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/destinations" element={<div>Destinations</div>} />
+            <Route path="/bookings" element={<div>Bookings</div>} />
+            <Route path="/profile" element={<div>Profile</div>} />
+          </Routes>
         </div>
       </div>
     </Router>
